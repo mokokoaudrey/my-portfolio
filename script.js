@@ -11,6 +11,11 @@ const modalResult = document.querySelector("#modal-result");
 const closeModalButtons = document.querySelectorAll("[data-close-modal]");
 const contactForm = document.querySelector("#contact-form");
 const formStatus = document.querySelector("#form-status");
+const profilePhotos = document.querySelectorAll(".profile-card__photo");
+const imageModal = document.querySelector("#image-modal");
+const imageModalImg = document.querySelector("#image-modal-img");
+const imageModalTitle = document.querySelector("#image-modal-title");
+const closeImageButtons = document.querySelectorAll("[data-close-image]");
 
 const toggleMenu = () => {
   const isOpen = navMenu.classList.toggle("is-open");
@@ -90,6 +95,32 @@ const closeProjectModal = () => {
   modal.setAttribute("aria-hidden", "true");
 };
 
+const openImageModal = (button) => {
+  const imageSrc = button.dataset.imageSrc;
+  const imageTitle = button.dataset.imageTitle;
+
+  imageModalImg.src = imageSrc;
+  imageModalImg.alt = imageTitle;
+  imageModalTitle.textContent = imageTitle;
+  imageModal.classList.add("is-open");
+  imageModal.setAttribute("aria-hidden", "false");
+  imageModal.querySelector(".image-modal__close").focus();
+};
+
+const closeImageModal = () => {
+  imageModal.classList.remove("is-open");
+  imageModal.setAttribute("aria-hidden", "true");
+  imageModalImg.src = "";
+};
+
+profilePhotos.forEach((button) => {
+  button.addEventListener("click", () => openImageModal(button));
+});
+
+closeImageButtons.forEach((button) => {
+  button.addEventListener("click", closeImageModal);
+});
+
 projectCards.forEach((card) => {
   card.addEventListener("click", () => openProjectModal(card));
   card.addEventListener("keydown", (event) => {
@@ -107,6 +138,10 @@ closeModalButtons.forEach((button) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && modal.classList.contains("is-open")) {
     closeProjectModal();
+  }
+
+  if (event.key === "Escape" && imageModal.classList.contains("is-open")) {
+    closeImageModal();
   }
 });
 

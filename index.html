@@ -16,15 +16,13 @@
     <nav class="nav container" aria-label="Navigation principale">
       <a class="nav__brand" href="#accueil" aria-label="Retour a l'accueil">
         <span class="nav__mark">AM</span>
-        <span>Audrey MOKOKO</span>
+        <span>Audrey Syril MOKOKO</span>
       </a>
-
       <button class="nav__toggle" type="button" aria-label="Ouvrir le menu" aria-expanded="false">
         <span></span>
         <span></span>
         <span></span>
       </button>
-
       <ul class="nav__menu" id="nav-menu">
         <li><a class="nav__link" href="#accueil">Accueil</a></li>
         <li><a class="nav__link" href="#apropos">A propos</a></li>
@@ -34,7 +32,6 @@
       </ul>
     </nav>
   </header>
-
   <main>
     <section class="hero section" id="accueil">
       <div class="hero__grid container">
@@ -53,7 +50,14 @@
 
         <aside class="hero__panel reveal" aria-label="Indicateurs de performance">
           <div class="profile-card">
-            <img src="2.jpg" alt="Portrait professionnel">
+            <div class="profile-card__images" aria-label="Photos professionnelles">
+              <button class="profile-card__photo" type="button" data-image-src="2.jpg" data-image-title="Portrait professionnel en costume">
+                <img src="2.jpg" alt="Portrait professionnel en costume">
+              </button>
+              <button class="profile-card__photo" type="button" data-image-src="1.jpg" data-image-title="Portrait professionnel">
+                <img src="1.jpg" alt="Portrait professionnel">
+              </button>
+            </div>
             <div>
               <span class="metric-card__label">Profil senior</span>
               <strong>Finance Data</strong>
@@ -109,7 +113,7 @@
           </p>
           <div class="about__stats">
             <div>
-              <strong>8+</strong>
+              <strong>5+</strong>
               <span>ans en finance data</span>
             </div>
             <div>
@@ -238,10 +242,10 @@
           <p class="eyebrow">Contact</p>
           <h2>Construisons un pilotage finance plus clair.</h2>
           <p>
-            Disponible pour missions d'analyse, audit data, reporting Power BI et
+            Disponible pour missions d'analyse,comptable, controle, audit data, reporting Power BI et
             optimisation des processus finance.
           </p>
-          <a class="contact__email" href="mailto:audrey.mokoko@email.com">audrey.mokoko@email.com</a>
+          <a class="contact__email" href="mailto:mokokoaudrey@gmail.com">mokokoaudrey@gmail.com</a>
         </div>
 
         <form class="contact-form reveal" id="contact-form" novalidate>
@@ -249,7 +253,7 @@
           <input id="name" name="name" type="text" placeholder="Votre nom" required>
 
           <label for="email">Email</label>
-          <input id="email" name="email" type="email" placeholder="votre@email.com" required>
+          <input id="email" name="email" type="email" placeholder="votre mail @gmail.com" required>
 
           <label for="message">Message</label>
           <textarea id="message" name="message" rows="5" placeholder="Decrivez votre besoin" required></textarea>
@@ -281,6 +285,15 @@
       <div class="project-modal__meta" id="modal-tools"></div>
       <strong id="modal-result"></strong>
     </article>
+  </div>
+
+  <div class="image-modal" id="image-modal" aria-hidden="true">
+    <div class="image-modal__overlay" data-close-image></div>
+    <figure class="image-modal__content" role="dialog" aria-modal="true" aria-labelledby="image-modal-title">
+      <button class="image-modal__close" type="button" data-close-image aria-label="Fermer">x</button>
+      <img id="image-modal-img" src="" alt="">
+      <figcaption id="image-modal-title"></figcaption>
+    </figure>
   </div>
 
   <script src="script.js"></script>
